@@ -1,0 +1,22 @@
+# Build output
+/target
+
+# A brain created inside the repository by mistake (`sb init` here, tests…)
+/vault/
+/data/
+/config.toml
+*.db
+*.db-wal
+*.db-shm
+secrets/
+
+# Local environment
+.env
+.env.*
+*.log
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store

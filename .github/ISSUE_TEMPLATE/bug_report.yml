@@ -1,0 +1,34 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got (exact error text). Do not paste private journal content or tokens.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. sb init
+        2. ...
+  - type: input
+    id: version
+    attributes:
+      label: sb --version
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: OS, terminal, model provider
+      placeholder: Arch Linux, kitty 0.49, claude CLI
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Output of `sb doctor`
+      render: text

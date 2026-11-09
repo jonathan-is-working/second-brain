@@ -1,0 +1,49 @@
+[package]
+name = "second-brain"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "A local-first second brain: write a Markdown journal, get tasks, notes, a knowledge graph and a planned calendar"
+license = "MIT OR Apache-2.0"
+authors = ["Jonathan"]
+readme = "README.md"
+repository = "https://github.com/jojorequiem/second-brain"
+homepage = "https://github.com/jojorequiem/second-brain"
+keywords = ["second-brain", "journal", "markdown", "llm", "productivity"]
+categories = ["command-line-utilities"]
+# The name "second-brain" is already taken on crates.io: install from git for now.
+publish = false
+
+[dependencies]
+anyhow = "1.0.104"
+base64 = "0.23.1"
+chrono = { version = "0.4.45", features = ["serde"] }
+chrono-tz = "0.10.4"
+clap = { version = "4.6.7", features = ["derive", "env"] }
+ctrlc = { version = "3.5.2", features = ["termination"] }
+getrandom = "0.2"
+hex = "0.4.3"
+libc = "0.2.191"
+notify = "8.2.1"
+ratatui = "0.30.2"
+pulldown-cmark = { version = "0.13.6", default-features = false, features = ["html"] }
+reqwest = { version = "0.13.5", default-features = false, features = ["blocking", "json", "rustls", "form", "query"] }
+rusqlite = { version = "0.32", features = ["bundled", "chrono"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sha2 = "0.11.1"
+thiserror = "2.0.21"
+toml = "1.2.1"
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+
+[dev-dependencies]
+tempfile = "3.27.0"
+
+[[bin]]
+name = "sb"
+path = "src/main.rs"
+
+[profile.release]
+lto = "thin"
+strip = true
